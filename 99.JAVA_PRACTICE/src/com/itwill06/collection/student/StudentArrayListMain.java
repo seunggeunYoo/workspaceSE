@@ -24,6 +24,8 @@ public class StudentArrayListMain {
 		 * 1. 전체학생총점,평균,평점계산
 		 */
 		System.out.println("1. 전체학생총점,평균,평점계산");
+		
+		
 		/*
 		 * 2. 전체학생 총점으로 석차계산
 		 */
@@ -37,14 +39,21 @@ public class StudentArrayListMain {
 		 * 4. 번호3번 학생한명 출력
 		 */
 		System.out.println("4.번호3번 학생한명 출력  ");
+		
+
+		
 		/*
 		 * 5. 학점A인 학생들 출력
 		 */
 		System.out.println("5. 학점A인 학생들 출력");
+	
+
+		
 		/*
 		 6.이름이 KIM인학생들 출력
 		 */
 		System.out.println("6.이름이 KIM인학생들 출력");
+	
 		/*
 		 * 7.번호3번학생한명삭제
 		 */

@@ -11,11 +11,11 @@ public class MyArrayListMain {
 		myArrayList.add(new Account(4,"CHOI",4000,0.4));
 		System.out.println("----add---");
 		System.out.println("#list size:"+myArrayList.size());
-		Account account=myArrayList.get(0);
+		Account account=myArrayList.get(1);
 		System.out.println(account);
 		System.out.println("----remove---");
 		Account removeAccount=
-				myArrayList.remove(0);
+				myArrayList.remove(3);
 		removeAccount.print();
 		System.out.println("#list size:"+myArrayList.size());
 		
