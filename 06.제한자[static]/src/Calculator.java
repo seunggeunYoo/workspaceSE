@@ -12,7 +12,7 @@ public class Calculator {
 	private Calculator() {
 		// TODO Auto-generated constructor stub
 	}
-	/**
+	/***
 	 * 더하기
 	 * @param a 항1
 	 * @param b 항2
