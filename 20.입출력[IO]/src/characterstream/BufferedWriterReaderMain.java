@@ -11,7 +11,7 @@ public class BufferedWriterReaderMain {
 	public static void main(String[] args) throws Exception {
 		BufferedWriter bw = new BufferedWriter(new FileWriter("bufferedWriter.txt"));
 		
-		bw.write("첫번째줄");
+		bw.write("첫번째줄");/*write 쓰고 newLine은 항상 같이 쓴다.*/
 		bw.newLine();
 		bw.write("두번째줄");
 		bw.newLine();

@@ -13,7 +13,7 @@ public class CollectionsMain {
 	public static void main(String[] args) {
 		/*
 		 * Collections 클래스
-		 *    - Collection객체들의 uitilty메쏘드제공
+		 *    - Collection객체들의 utility메쏘드제공
 		 */
 		
 		/*

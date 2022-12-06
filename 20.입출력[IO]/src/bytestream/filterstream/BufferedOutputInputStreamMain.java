@@ -8,33 +8,38 @@ import java.io.FileOutputStream;
 public class BufferedOutputInputStreamMain {
 
 	public static void main(String[] args) throws Exception {
-		/******************************************BufferedOutputStream***********************************************/
+		/******************************************
+		 * BufferedOutputStream
+		 ***********************************************/
 		FileOutputStream fos = new FileOutputStream("buffereOut.dat");
 		BufferedOutputStream bos = new BufferedOutputStream(fos);
-		
+
 		bos.write(65);
 		bos.write(66);
 		bos.write(67);
 		bos.write(2147483647);
-		for(int i = 0;i<256;i++) {
+		for (int i = 0; i < 256; i++) {
 			bos.write(i);
 		}
 		bos.close();
 		System.out.println("BufferedOutputStream.write-->bufferedOut.dat");
-		/*******************************************BufferedInputStream**********************************************/
+		/*******************************************
+		 * BufferedInputStream
+		 **********************************************/
 		BufferedInputStream bis = new BufferedInputStream(new FileInputStream("buffereOut.dat"));
-		
-		int readByte=bis.read();
-		System.out.println("1.bye:"+Integer.toBinaryString(readByte));
-		readByte=bis.read();
-		System.out.println("2.bye:"+Integer.toBinaryString(readByte));
-		readByte=bis.read();
-		System.out.println("3.bye:"+Integer.toBinaryString(readByte));
-		readByte=bis.read();
-		System.out.println("4.bye:"+Integer.toBinaryString(readByte));
-		while(true) {
-			readByte=bis.read();
-			if(readByte==-1)break;
+
+		int readByte = bis.read();
+		System.out.println("1.bye:" + Integer.toBinaryString(readByte));
+		readByte = bis.read();
+		System.out.println("2.bye:" + Integer.toBinaryString(readByte));
+		readByte = bis.read();
+		System.out.println("3.bye:" + Integer.toBinaryString(readByte));
+		readByte = bis.read();
+		System.out.println("4.bye:" + Integer.toBinaryString(readByte));
+		while (true) {
+			readByte = bis.read();
+			if (readByte == -1)
+				break;
 			System.out.println(Integer.toBinaryString(readByte));
 		}
 		bis.close();
