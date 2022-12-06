@@ -1,5 +1,6 @@
 package bytestream;
 
+import java.io.File;
 import java.io.FileInputStream;
 
 /*
@@ -13,7 +14,7 @@ import java.io.FileInputStream;
 public class FileInputStreamMain {
 
 	public static void main(String[] args) throws Exception {
-		FileInputStream fis = new FileInputStream("fileOut.dat");
+		FileInputStream fis = new FileInputStream(new File("src/bytestream", "fileOut.dat"));
 		/*
 		public abstract int read() throws IOException
 			- Reads the next byte of data from the input stream. 
