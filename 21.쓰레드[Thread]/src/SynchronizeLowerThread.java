@@ -1,8 +1,8 @@
 
-public class SynchronzeLowerThread extends Thread {
+public class SynchronizeLowerThread extends Thread {  
 	private SynchronizeUpperLowerPrintSharedObject sharedObject;
 
-	public SynchronzeLowerThread(SynchronizeUpperLowerPrintSharedObject sharedObject) {
+	public SynchronizeLowerThread(SynchronizeUpperLowerPrintSharedObject sharedObject) {
 		this.sharedObject = sharedObject;
 	}
 
@@ -11,6 +11,5 @@ public class SynchronzeLowerThread extends Thread {
 		while (true) {
 			sharedObject.printLower();
 		}
-
 	}
 }
