@@ -45,7 +45,7 @@ public class MainFrame extends JFrame {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\itwill\\Downloads\\2f.jpg"));
 		setTitle("나의첫번째프레임");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 417, 354);
+		setBounds(100, 100, 405, 383);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(255, 255, 128));
 		contentPane.setBorder(new LineBorder(Color.RED));
