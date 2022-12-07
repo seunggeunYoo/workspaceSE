@@ -9,10 +9,10 @@
      
 
 	type A:
-	1. Thread 클래스를 상속받는다.
+	1. Thread 클래스를 상속받는다. - (인터페이스로 만듬.)
 	2. Thread class의 run method를 overriding 한다.
 		동사원형:public void run()
-	3. Thread 객체를 생성한다.
+	3. Thread 객체를 생성한다. (스레드를 사용해서 스레드를 만들것이다.)
 	4. Thread 객체를통해서 Thread를 시작시킨다.
 	
     type B:
@@ -43,16 +43,15 @@ public class MainThreadMain {
 	public static void main(String[] args) {
 		System.out.println("main thread start");
 		/*
-		 * 현재코드를 실행시키면 메인쓰레드의 쓰레드객체참조얻기 
+		 * 현재코드를 실행시키는 메인쓰레드의 쓰레드객체참조얻기
 		 */
 		Thread mainThread = Thread.currentThread();
 		System.out.println("main thread name:"+mainThread.getName());
-		System.out.println("main thread priority:"+mainThread.getPriority
-				());
+		System.out.println("main thread priority:"+mainThread.getPriority());
+		MainThreadCalled mainThreadCalled=new MainThreadCalled();
+		mainThreadCalled.main_thread_called_method();
 		System.out.println("main thread end");
 		return;
-		
-
 	}
 
 }
