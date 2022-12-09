@@ -22,9 +22,7 @@ public class StudentService {
 			
 	};
 	
-	public Student[] getStudents() {
-		return this.students;
-	}
+
 	/*
 	 *  0.전체학생출력
 	 */
@@ -56,12 +54,21 @@ public class StudentService {
 	/*
 	 * 3. 전체학생반환
 	 */
-	
+	public Student[] getStudents() {
+		return this.students;
+	}
 	/*
 	 * 4. 번호3번 학생한명 반환  
 	 */
 	public Student findByNo(int no) {
 		Student findStudent=null;
+		
+		for (Student student : students) {
+			if(student.getNo()==no) {
+				findStudent=student;
+				break;
+			}
+		}
 		
 		return findStudent;
 	}
