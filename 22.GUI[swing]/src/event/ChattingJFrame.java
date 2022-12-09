@@ -15,6 +15,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class ChattingJFrame extends JFrame {
 
@@ -43,7 +45,17 @@ public class ChattingJFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public ChattingJFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				System.out.println("windowClosing");
+				/*
+				 Terminates the currently running Java Virtual Machine. 
+				 */
+				System.exit(0);
+			}
+		});
+		setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		setBounds(100, 100, 357, 513);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -64,6 +76,19 @@ public class ChattingJFrame extends JFrame {
 		contentPane.add(panel_1, BorderLayout.SOUTH);
 		
 		chatTF = new JTextField();
+		chatTF.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("TextField enter click~~");
+				/*
+				 * frame의 TextField와 TextArea에 접근해야함
+				 */
+				String chatStr=ChattingJFrame.this.chatTF.getText();
+				chatTF.setText("");
+				ChattingJFrame.this.chatTA.append("승근:"+chatStr+"\n");
+				chatTF.requestFocus();
+				
+			}
+		});
 		panel_1.add(chatTF);
 		chatTF.setColumns(20);
 		
@@ -72,8 +97,9 @@ public class ChattingJFrame extends JFrame {
 		
 		
 		chatTA = new JTextArea();
+		chatTA.setEditable(false);
 		
-		chatTA.setText("경호:이따만나\r\n태희:아라써~~~~\n");
+		chatTA.setText("승근:이따만나\r\n정하:아라써~~~~\n");
 		contentPane.add(chatTA, BorderLayout.CENTER);
 		/*
 		 * 이벤트소쓰에 이벤트핸들러객체등록
