@@ -24,6 +24,7 @@ public class StudentArrayListMain {
 		 * 1. 전체학생총점,평균,평점계산
 		 */
 		System.out.println("1. 전체학생총점,평균,평점계산");
+	
 		
 		
 		/*

@@ -110,6 +110,12 @@ public class AccountService {
 	 *  5.계좌잔고 인자로 받아서 잔고이상인 계좌들출력
 	 */
 	public void findByBalancePrint(int balance) {
+		for (Account account : accounts) {
+			if(account.getBalance()>=balance) {
+				account.print();
+				
+			}
+		}
 		
 	}
 
@@ -117,6 +123,11 @@ public class AccountService {
 	6.계좌이율 인자로 받아서 이율이상인 계좌들출력
 	*/
 	public void findByIyulPrint(double iyul) {
+		for (Account account : accounts) {
+			if(account.getIyul()>=iyul) {
+				account.print();
+			}
+		}
 		
 
 	}
@@ -125,6 +136,11 @@ public class AccountService {
 	7.계좌주이름 인자로 받아서 인자이름과동일한 계좌들출력
 	 */
 	public void findByNamePrint(String name) {
+		for (Account account : accounts) {
+			if(account.getOwner().equals(name)) {
+				account.print();
+			}
+		}
 		
 
 	}
@@ -137,7 +153,13 @@ public class AccountService {
 		 * 1.계좌번호로 계좌찾기
 		 * 2.입금
 		 */
-		
+		for (Account account : accounts) {
+			if(account.getNo()==no) {
+				account.deposit(m);
+				account.print();
+				
+			}
+		}
 	}
 
 	/*
@@ -148,6 +170,12 @@ public class AccountService {
 		 * 1.계좌번호로 계좌찾기
 		 * 2.출금
 		 */
+		for (Account account : accounts) {
+			if(account.getNo()==no) {
+				account.withDraw(m);
+				account.print();
+			}
+		}
 
 	}
 

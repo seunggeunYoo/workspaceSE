@@ -33,9 +33,17 @@ public class AccountServiceReturn {
 		 * 	- 기존배열보다큰배열생성 
 		 * 	- 기존데이타 옮김
 		 */
+		/*
 		Account[] tempAccount=new Account[accounts.length+1];
 		
 		for(int i=0;i<accounts.length;i++) {
+			tempAccount[i]=accounts[i];
+		}
+		tempAccount[tempAccount.length-1]=newAccount;
+		accounts=tempAccount;
+		*/
+		Account[] tempAccount = new Account[accounts.length+1];
+		for (int i = 0; i < accounts.length; i++) {
 			tempAccount[i]=accounts[i];
 		}
 		tempAccount[tempAccount.length-1]=newAccount;
@@ -178,6 +186,7 @@ public class AccountServiceReturn {
 	 * 10,11 정렬  standard --> 1:번호,2:이름,3:잔고,4:이율 
 	 *             order    --> 1:오름차순,2:내림차순
 	 */
+	/*
 	public void sort(int standard, int order) {
 		if(standard==AccountServiceReturn.SORT_BY_BALANCE) {
 			if(order==AccountServiceReturn.SORT_ASC) {
@@ -195,6 +204,32 @@ public class AccountServiceReturn {
 				//내림차순
 				for(int i=0;i<accounts.length-1;i++) {
 					for(int j=0;j<accounts.length-1;j++) {
+						if(accounts[j].getBalance() < accounts[j+1].getBalance()) {
+							Account tempAccount = accounts[j];
+							accounts[j]=accounts[j+1];
+							accounts[j+1]=tempAccount;
+						}
+					}
+				}
+			}
+		}
+	}
+	*/
+	public void sort(int standard, int order) {
+		if(standard==AccountServiceReturn.SORT_BY_BALANCE) {
+			if(order==AccountServiceReturn.SORT_ASC) {
+				for(int i=0; i<accounts.length;i++) {
+					for(int j=0; j<accounts.length;j++) {
+						if(accounts[j].getBalance()>accounts[j+1].getBalance()) {
+							Account tempAccount = accounts[j];
+							accounts[j]=accounts[j+1];
+							accounts[j+1]=tempAccount;
+						}
+					}
+				}
+			}else if(order==AccountServiceReturn.SORT_DESC) {
+				for(int i = 0; i<accounts.length;i++) {
+					for(int j=0; j<accounts.length;j++) {
 						if(accounts[j].getBalance() < accounts[j+1].getBalance()) {
 							Account tempAccount = accounts[j];
 							accounts[j]=accounts[j+1];

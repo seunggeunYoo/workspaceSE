@@ -53,6 +53,8 @@ public class Student {
 		this.eng = eng;
 		this.math = math;
 	}
+	
+
 
 	public void calculateTotal() {
 		this.tot = this.kor + this.eng + this.math;
