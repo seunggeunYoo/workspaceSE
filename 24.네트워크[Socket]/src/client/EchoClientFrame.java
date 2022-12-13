@@ -71,10 +71,11 @@ public class EchoClientFrame extends JFrame {
 					} 
 					echoTF.setText("");
 					echoTF.requestFocus();
+					
 					/*
 					 * 1.Socket생성
 					 */
-					Socket socket=new Socket("192.168.15.12",9999);	
+					Socket socket=new Socket("192.168.15.31",9999);	
 					/*
 					 * 2.서버로문자데이타쓰기
 					 * 		- OutputStream 얻기
@@ -85,6 +86,8 @@ public class EchoClientFrame extends JFrame {
 					PrintWriter pw=new PrintWriter(osw);
 					pw.println(echoStr);
 					pw.flush();
+					
+					
 					/*
 					 * 3.서버에서 전송되는 데이타 읽기
 					 * 		- InputStream 얻기
@@ -125,7 +128,6 @@ public class EchoClientFrame extends JFrame {
 	
 
 }
-
 
 
 

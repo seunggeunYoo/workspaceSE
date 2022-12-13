@@ -20,7 +20,8 @@ public class ServerSocketMain {
 		/*
 		 public Socket accept() throws IOException;
 		 	- Listens for a connection to be made to this socket and accepts it. 
-		 		A. 3333번포트를열고 클라이언트의 소켓연결요청을 무한하게 대기한다.(쓰레드블록킹)
+		 		A. 3333번포트를열고 클라이언트의 소켓연결요청을 무한하게 대기한다.
+		 		(쓰레드블록킹)
 		 		B. 소켓연결요청이오면 소켓을 생성한다.(반환한다)
 		 	- The method blocks until a connection is made
 		 	    A. 소켓이생성될때까지 쓰레드블록킹
