@@ -50,10 +50,6 @@ public class EmpDao {
 		
 		return rowMap;
 		
-		
-		
-		
-		
 	}
 	public List<Map> findAllWithDept() throws Exception {
 		List<Map> rowMapList = new ArrayList<Map>();
@@ -82,8 +78,6 @@ public class EmpDao {
 		pstmt.close();
 		dataSource.close(con);
 		return rowMapList;
-		
-		
 	}
 
 }
