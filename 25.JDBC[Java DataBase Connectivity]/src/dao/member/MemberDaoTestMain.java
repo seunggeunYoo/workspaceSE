@@ -5,7 +5,7 @@ public class MemberDaoTestMain {
 	public static void main(String[] args) throws Exception {
 		MemberDao memberDao=new MemberDao();
 		System.out.println("0.delete   --> ");
-		memberDao.delete(23);
+		memberDao.delete("aaaa");
 		
 		System.out.println("1.insert   --> ");
 		Member newmember = new Member("dddd","dddd","모찌","내가있는곳",20,'T',null);
