@@ -117,18 +117,16 @@ public class MemberDao {
 		Statement stmt=con.createStatement();
 		ResultSet rs=stmt.executeQuery(selectSQL);
 		if(rs.next()) {
-			String i=rs.getString("m_id");
-			String password1=rs.getString("m_password");
-			String name=rs.getString("m_phone");
-			String address=rs.getString("m_address");
-			int age=rs.getInt("m_age");
-			char married = "m_married".charAt(0);
-			Date regdate = rs.getDate("m_regdate");
-			findMember = new Member(id,password1,name,address,age,married,regdate);
+			String m_id=rs.getString("m_id");
+			String m_password=rs.getString("m_password");
+			String m_name=rs.getString("m_name");
+			String m_address=rs.getString("m_address");
+			int m_age=rs.getInt("m_age");
+			char m_married = "m_married".charAt(0);
+			Date m_regdate = rs.getDate("m_regdate");
+			findMember = new Member(m_id,m_password,m_name,m_address,m_age,m_married,m_regdate);
 			
-			System.out.println(i+"\t"+password1+"\t"+name+"\t"+address+"\t"+age+"\t"+married+"\t"+regdate);
 		}else {
-			System.out.println("조건에 만족하는 주소록 존재안함");
 			findMember=null;
 		}
 		
@@ -157,18 +155,17 @@ public class MemberDao {
 		ResultSet rs=stmt.executeQuery(selectSQL);
 		if(rs.next()) {
 			do {
-			String id=rs.getString("m_id");
-			String password1=rs.getString("m_password");
-			String name=rs.getString("m_phone");
-			String address=rs.getString("m_address");
-			int age=rs.getInt("m_age");
-			char married = "m_married".charAt(0);
-			Date regdate = rs.getDate("m_regdate");
-			Member member = new Member(id,password1,name,address,age,married,regdate);
+			String m_id=rs.getString("m_id");
+			String m_password=rs.getString("m_password");
+			String m_name=rs.getString("m_name");
+			String m_address=rs.getString("m_address");
+			int m_age=rs.getInt("m_age");
+			char m_married = "m_married".charAt(0);
+			Date m_regdate = rs.getDate("m_regdate");
+			Member member = new Member(m_id,m_password,m_name,m_address,m_age,m_married,m_regdate);
 		}while(rs.next());
-//			System.out.println(id+"\t"+password1+"\t"+name+"\t"+address+"\t"+age+"\t"+married+"\t"+regdate);
+
 		}else {
-			System.out.println("조건에 만족하는 주소록 존재안함");
 		}
 		
 		rs.close();

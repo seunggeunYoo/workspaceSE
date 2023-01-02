@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//src/com/itwill/address/erd/01.address_insert_update_delete_select.sql=UTF-8
+encoding//src/com/itwill/guest/erd/guest_insert_update_delete_select.sql=UTF-8
+encoding//src/com/itwill/guest/erd/guest_table_create_drop.ddl=MS949
+encoding/<project>=x-windows-949
