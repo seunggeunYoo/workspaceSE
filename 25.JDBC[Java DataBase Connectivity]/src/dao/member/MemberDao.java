@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Dao(Data[DataBase] Access Object)객체
@@ -21,7 +22,7 @@ public class MemberDao {
 
 	}
 
-	public void insert(Member newmember) throws Exception {
+	public int insert(Member newmember) throws Exception {
 		/*****************데이타베이스접속정보***********/
 	    String driverClass="oracle.jdbc.OracleDriver";
 	    String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
@@ -46,10 +47,11 @@ public class MemberDao {
 		System.out.println(">>insert row count:"+rowCount+" 행 insert");
 		stmt.close();
 		con.close();
+		return rowCount;
 	}
 
-	
-	public void update(Member updatemember) throws Exception {
+
+	public int update(Member updatemember) throws Exception {
 		/*****************데이타베이스접속정보***********/
 	    String driverClass="oracle.jdbc.OracleDriver";
 	    String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
@@ -68,14 +70,17 @@ public class MemberDao {
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
 		int rowCount=stmt.executeUpdate(updateSQL);
-		System.out.println(">> "+rowCount+" 행 update");
 		
 		stmt.close();
 		con.close();
+		return rowCount;
 
 	}
 
-	public void delete(String id) throws Exception {
+
+
+
+	public int delete(String id) throws Exception {
 		/*****************데이타베이스접속정보***********/
 	    String driverClass="oracle.jdbc.OracleDriver";
 	    String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
@@ -91,11 +96,12 @@ public class MemberDao {
 		System.out.println(">>"+rowCount+ "행 delete");
 		stmt.close();
 		con.close();
+		return rowCount;
 		
 
 	}
 
-	public void findByPrimaryKey(String id) throws Exception {
+	public Member findByPrimaryKey(String id) throws Exception {
 		/*****************데이타베이스접속정보***********/
 	    String driverClass="oracle.jdbc.OracleDriver";
 	    String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
@@ -104,6 +110,8 @@ public class MemberDao {
 		/***********************************************/
 		String selectSQL="select m_id,m_password,m_name,m_address,m_age,m_married,m_regdate from member where m_id="+id;
 		
+		Member findMember=null;
+		
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
@@ -116,19 +124,22 @@ public class MemberDao {
 			int age=rs.getInt("m_age");
 			char married = "m_married".charAt(0);
 			Date regdate = rs.getDate("m_regdate");
+			findMember = new Member(id,password1,name,address,age,married,regdate);
 			
 			System.out.println(i+"\t"+password1+"\t"+name+"\t"+address+"\t"+age+"\t"+married+"\t"+regdate);
 		}else {
 			System.out.println("조건에 만족하는 주소록 존재안함");
+			findMember=null;
 		}
 		
 		rs.close();
 		stmt.close();
 		con.close();
+		return findMember;
 
 	}
 
-	public void findAll() throws Exception {
+	public List<Member> findAll() throws Exception {
 		/*****************데이타베이스접속정보***********/
 	    String driverClass="oracle.jdbc.OracleDriver";
 	    String url="jdbc:oracle:thin:@182.237.126.19:1521:xe";
@@ -137,21 +148,25 @@ public class MemberDao {
 		/***********************************************/
 		String selectSQL="select m_id,m_password,m_name,m_address,m_age,m_married,m_regdate from member";
 		
+		List<Member> memberList = new ArrayList<Member>();
+		
 		Class.forName(driverClass);
 		Connection con=DriverManager.getConnection(url,user,password);
 		Statement stmt=con.createStatement();
 		
 		ResultSet rs=stmt.executeQuery(selectSQL);
 		if(rs.next()) {
-			String i=rs.getString("m_id");
+			do {
+			String id=rs.getString("m_id");
 			String password1=rs.getString("m_password");
 			String name=rs.getString("m_phone");
 			String address=rs.getString("m_address");
 			int age=rs.getInt("m_age");
 			char married = "m_married".charAt(0);
 			Date regdate = rs.getDate("m_regdate");
-			
-			System.out.println(i+"\t"+password1+"\t"+name+"\t"+address+"\t"+age+"\t"+married+"\t"+regdate);
+			Member member = new Member(id,password1,name,address,age,married,regdate);
+		}while(rs.next());
+//			System.out.println(id+"\t"+password1+"\t"+name+"\t"+address+"\t"+age+"\t"+married+"\t"+regdate);
 		}else {
 			System.out.println("조건에 만족하는 주소록 존재안함");
 		}
@@ -159,9 +174,7 @@ public class MemberDao {
 		rs.close();
 		stmt.close();
 		con.close();
+		return memberList;
 		
-
-		
-
 	}
 }

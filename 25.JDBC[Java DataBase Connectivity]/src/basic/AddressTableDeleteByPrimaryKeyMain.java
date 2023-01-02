@@ -13,7 +13,7 @@ public class AddressTableDeleteByPrimaryKeyMain {
 		String user="scott";
 		String password="tiger";
 		/***********************************************/
-		String deleteSQL="delete address where no=42";
+		String deleteSQL="delete address where no=43";
 		/*
 		 1.Driver class loading
 	     2.Connection 객체생성

@@ -60,6 +60,7 @@ public class AddressDao3 {
 		
 		stmt.close();
 		con.close();
+		
 	}
 	public void delete(int no)throws Exception {
 		/*****************데이타베이스접속정보***********/
