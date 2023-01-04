@@ -17,12 +17,16 @@ public class GuestServiceTestMain {
 		System.out.println("2.방명록수정");
 		guest.setGuest_name("수정이름");
 		guest.setGuest_homepage("www.change.co.kr");
-//		System.out.println(">>"+ guestService.gu);
-		
+		System.out.println(">>"+ guestService.guestUpdate(guest));
 		
 		System.out.println("3.방명록삭제");
+		System.out.println(">> "+guestService.guestDelete(10));
+		
 		System.out.println("5.방명록이름으로검색 보기");
+		System.out.println(">> "+guestService.findByGuestName("김봉선"));
+		
 		System.out.println("6.방명록 리스트보기");
+		System.out.println(">> "+guestService.guestList());
 
 	}
 
